@@ -64,6 +64,13 @@ try {
 }
 ```
 
+- In the **MainActivity.java** of your android app (android/app/src/main/java/{APP_ID}/MainActivity.java), add the following line inside the bridge init:
+```java
+this.init(savedInstanceState, new ArrayList<Class<? extends Plugin>>() {{
+    add(PushKit.class);//Add the following line
+}});
+```
+
 ## Api
 | Method        | Info                                   | Parameters          | Return                        |
 |:-------------:| ---------------------------------------|:-------------------:|:-----------------------------:|
