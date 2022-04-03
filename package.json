@@ -1,6 +1,6 @@
 {
   "name": "capacitor-hms-push-kit",
-  "version": "0.0.1",
+  "version": "3.0.0",
   "description": "Capacitor plugin for HMS push kit",
   "main": "dist/plugin.js",
   "module": "dist/esm/index.js",
@@ -17,9 +17,9 @@
   "author": "Ikamaru",
   "license": "MIT",
   "devDependencies": {
-    "@capacitor/android": "^2.4.7",
-    "@capacitor/core": "^2.4.7",
-    "@capacitor/ios": "^2.4.7",
+    "@capacitor/android": "^3.4.3",
+    "@capacitor/core": "^3.4.3",
+    "@capacitor/ios": "^3.4.3",
     "@ionic/prettier-config": "^1.0.0",
     "@ionic/swiftlint-config": "^1.0.0",
     "@rollup/plugin-node-resolve": "^8.1.0",
@@ -31,7 +31,7 @@
     "typescript": "~3.8.3"
   },
   "peerDependencies": {
-    "@capacitor/core": "^2.4.7"
+    "@capacitor/core": "^3.4.3"
   },
   "files": [
     "dist/",
@@ -61,5 +61,8 @@
   },
   "bugs": {
     "url": "https://github.com/ikamaru/capacitor-hms-push-kit.git/issues"
+  },
+  "dependencies": {
+    "@capacitor/cli": "^3.4.3"
   }
 }

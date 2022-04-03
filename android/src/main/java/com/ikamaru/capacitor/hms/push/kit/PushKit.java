@@ -3,15 +3,17 @@ package com.ikamaru.capacitor.hms.push.kit;
 import android.util.Log;
 
 import com.getcapacitor.JSObject;
-import com.getcapacitor.NativePlugin;
+//import com.getcapacitor.NativePlugin;
 import com.getcapacitor.Plugin;
 import com.getcapacitor.PluginCall;
 import com.getcapacitor.PluginMethod;
+import com.getcapacitor.annotation.CapacitorPlugin;
+
 import com.huawei.hmf.tasks.OnCompleteListener;
 import com.huawei.hmf.tasks.Task;
 import com.huawei.hms.push.HmsMessaging;
 
-@NativePlugin
+@CapacitorPlugin
 public class PushKit extends Plugin {
     private static final String TAG = "CapacitorHMSPushKitLog";
     public static String token=null;

@@ -42,7 +42,7 @@ buildscript {
     }
     dependencies {
         //...
-        classpath 'com.huawei.agconnect:agcp:1.3.1.300' //TODO: add this line
+        classpath 'com.huawei.agconnect:agcp:1.4.1.300' //TODO: add this line
     }
 }
 allprojects {
@@ -69,6 +69,23 @@ try {
 this.init(savedInstanceState, new ArrayList<Class<? extends Plugin>>() {{
     add(PushKit.class);//Add the following line
 }});
+```
+Example:
+```java
+import com.ikamaru.capacitor.hms.push.kit.PushKit;
+
+public class MainActivity extends BridgeActivity {
+  @Override
+  public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+
+    // Initializes the Bridge
+    this.init(savedInstanceState, new ArrayList<Class<? extends Plugin>>() {{
+      add(PushKit.class);//Add the following line
+    }});
+  }
+  
+}
 ```
 
 ## Api
