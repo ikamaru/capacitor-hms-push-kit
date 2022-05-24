@@ -18,15 +18,16 @@ export class PushKitWeb extends WebPlugin implements PushKitPlugin {
     throw new Error('Not supported in the Web.');
   }
 
-  /* async echo(options: { value: string }): Promise<{ value: string }> {
-    console.log('ECHO', options);
-    return options;
-  } */
 }
 
-const PushKit = new PushKitWeb();
+//const PushKit = new PushKitWeb();
+//registerPlugin(PushKit);
+
+
+
+import { registerPlugin  } from '@capacitor/core';
+
+
+const PushKit = registerPlugin<PushKitPlugin>('PushKit', new PushKitWeb());
 
 export { PushKit };
-
-import { registerWebPlugin } from '@capacitor/core';
-registerWebPlugin(PushKit);
