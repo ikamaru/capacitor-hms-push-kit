@@ -1,5 +1,5 @@
 import { WebPlugin } from '@capacitor/core';
-import { PushKitPlugin } from './definitions';
+import type { PushKitPlugin } from './definitions';
 
 export class PushKitWeb extends WebPlugin implements PushKitPlugin {
   constructor() {
@@ -20,14 +20,3 @@ export class PushKitWeb extends WebPlugin implements PushKitPlugin {
 
 }
 
-//const PushKit = new PushKitWeb();
-//registerPlugin(PushKit);
-
-
-
-import { registerPlugin  } from '@capacitor/core';
-
-
-const PushKit = registerPlugin<PushKitPlugin>('PushKit', new PushKitWeb());
-
-export { PushKit };
