@@ -6,32 +6,35 @@
   "module": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
   "scripts": {
-    "lint": "npm run prettier -- --check && npm run swiftlint -- lint",
+    "lint": "npm run eslint && npm run prettier -- --check && npm run swiftlint -- lint",
+    "fmt": "npm run eslint -- --fix && npm run prettier -- --write && npm run swiftlint -- --fix --format",
+    "eslint": "eslint . --ext ts",
     "prettier": "prettier \"**/*.{css,html,ts,js,java}\"",
     "swiftlint": "node-swiftlint",
-    "build": "npm run clean && tsc && rollup -c rollup.config.js",
+    "docgen": "docgen --api PushKitPlugin --output-readme README.md --output-json dist/docs.json",
+    "build": "npm run clean && npm run docgen && tsc && rollup -c rollup.config.js",
     "clean": "rimraf ./dist",
     "watch": "tsc --watch",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "postinstall": "npm run build"
   },
   "author": "Ikamaru",
   "license": "MIT",
   "devDependencies": {
-    "@capacitor/android": "^3.4.3",
-    "@capacitor/core": "^3.4.3",
-    "@capacitor/ios": "^3.4.3",
+    "@capacitor/android": "^3.0.0",
+    "@capacitor/core": "^3.0.0",
+    "@capacitor/docgen": "^0.0.18",
+    "@capacitor/ios": "^3.0.0",
     "@ionic/prettier-config": "^1.0.0",
     "@ionic/swiftlint-config": "^1.0.0",
     "@rollup/plugin-node-resolve": "^8.1.0",
     "prettier": "^2.0.5",
     "prettier-plugin-java": "^0.8.0",
-    "rimraf": "^3.0.0",
-    "rollup": "^2.21.0",
+    "eslint": "^7.11.0",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.32.0",
     "swiftlint": "^1.0.1",
-    "typescript": "~3.8.3"
-  },
-  "peerDependencies": {
-    "@capacitor/core": "^3.4.3"
+    "typescript": "~4.0.3"
   },
   "files": [
     "dist/",
@@ -53,6 +56,12 @@
       "src": "android"
     }
   },
+  "peerDependencies": {
+    "@capacitor/core": "^3.0.0"
+  },
+  "eslintConfig": {
+    "extends": "@ionic/eslint-config/recommended"
+  },
   "prettier": "@ionic/prettier-config",
   "swiftlint": "@ionic/swiftlint-config",
   "repository": {
@@ -61,8 +70,5 @@
   },
   "bugs": {
     "url": "https://github.com/ikamaru/capacitor-hms-push-kit.git/issues"
-  },
-  "dependencies": {
-    "@capacitor/cli": "^3.4.3"
   }
 }
