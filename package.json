@@ -15,7 +15,7 @@
     "clean": "rimraf ./dist",
     "watch": "tsc --watch",
     "prepublishOnly": "npm run build",
-    "postinstall": "npm run build"
+    "prepare": "npm run build"
   },
   "author": "Ikamaru",
   "license": "MIT",
