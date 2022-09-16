@@ -64,28 +64,22 @@ try {
 }
 ```
 
-- In the **MainActivity.java** of your android app (android/app/src/main/java/{APP_ID}/MainActivity.java), add the following line inside the bridge init:
+- In the **MainActivity.java** of your android app (android/app/src/main/java/{APP_ID}/MainActivity.java), add the following :
+
 ```java
-this.init(savedInstanceState, new ArrayList<Class<? extends Plugin>>() {{
-    add(PushKit.class);//Add the following line
-}});
-```
-Example:
-```java
+import com.getcapacitor.BridgeActivity;
 import com.ikamaru.capacitor.hms.push.kit.PushKit;
 
 public class MainActivity extends BridgeActivity {
   @Override
   public void onCreate(Bundle savedInstanceState) {
+    registerPlugin(
+      PushKit.class
+    );
     super.onCreate(savedInstanceState);
-
-    // Initializes the Bridge
-    this.init(savedInstanceState, new ArrayList<Class<? extends Plugin>>() {{
-      add(PushKit.class);//Add the following line
-    }});
   }
-  
 }
+
 ```
 
 ## Api
